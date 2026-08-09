@@ -23,3 +23,21 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+// ============================================
+// Custom createExpenseViaApi() command — creates a fuel expense via API
+// ============================================
+Cypress.Commands.add('createExpenseViaApi', (carId, mileage, liters, totalCost) => {
+  const base = Cypress.config('baseUrl') || 'https://qauto.forstudy.space'
+  return cy.request({
+    method: 'POST',
+    url: `${base}/api/expenses`,
+    auth: { username: 'guest', password: 'welcome2qauto' },
+    body: {
+      carId,
+      reportedAt: new Date().toISOString(),
+      mileage,
+      liters,
+      totalCost,
+    },
+  })
+})
