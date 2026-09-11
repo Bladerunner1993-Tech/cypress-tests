@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/Bladerunner1993-Tech/cypress-tests#readme",
   "devDependencies": {
-    "cypress": "^15.19.0"
+    "cypress": "^12.17.4"
   }
 }
